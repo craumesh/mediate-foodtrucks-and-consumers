@@ -30,6 +30,8 @@ import org.apache.hc.core5.http.message.BasicClassicHttpRequest;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
 
 import com.fooding.member.action.MemberPwFindAction;
+import com.fooding.payment.db.MailDAO;
+import com.fooding.payment.db.MailDAOImpl;
 import com.fooding.payment.db.PaymentDAO;
 import com.fooding.payment.db.PaymentDTO;
 import com.google.gson.Gson;
@@ -44,6 +46,8 @@ public class Refund extends HttpServlet{
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
 		PaymentDAO pdao = new PaymentDAO();
+		MailDAO mdao = new MailDAOImpl();
+		
 		
 		// ----------------- ajax로 보낸 데이터 받기 --------
 		StringBuilder sb = new StringBuilder();
@@ -63,8 +67,10 @@ public class Refund extends HttpServlet{
 		for (String param : params) {
 		    String[] keyValue = param.split("=");
 		    String key = keyValue[0];
-		    String value = URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8);
-		    paramsMap.put(key, value);
+		    String value = "";
+		    if (keyValue.length > 1) {
+		        value = URLDecoder.decode(keyValue[1], StandardCharsets.UTF_8);
+		    }		    paramsMap.put(key, value);
 		}
 
 		String token = paramsMap.get("token");
@@ -80,7 +86,7 @@ public class Refund extends HttpServlet{
 		
 	//^^^^^^^^^^^^^^^^^^^^^ 디테일 아이디 구하기 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
 		int detail_id = 0;
-		if(paramsMap.get("indexnumber") != null) {
+		if(paramsMap.get("indexnumber") != null &&! paramsMap.get("indexnumber").equals("")) {
 		 detail_id = Integer.parseInt(paramsMap.get("indexnumber"));
 		}
 	//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^//
@@ -102,7 +108,7 @@ public class Refund extends HttpServlet{
 			if(istotal.equals("false") ) { //관리자페이지에서 단건취소용
 				pdao.sendSomeRefundEmail(email, detail_id, mid);
 			}else {
-				pdao.sendAllRefundEmail(email,mid);	
+				pdao.sendAllRefundEmail(email,detail_id,mid);	
 			}
 		}
 		

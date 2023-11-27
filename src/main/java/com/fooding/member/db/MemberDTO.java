@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 
 public class MemberDTO {
 
+	private int member_id;
 	private String id;
 	private String pw;
 	private String name;
@@ -23,9 +24,21 @@ public class MemberDTO {
 	
 	// alt shift s + r  
 	// => set/get 메서드 자동생성	
+	
+	
 	public String getId() {
 		return id;
 	}
+
+	public int getMember_id() {
+		return member_id;
+	}
+
+
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+
 
 	public void setId(String id) {
 		this.id = id;

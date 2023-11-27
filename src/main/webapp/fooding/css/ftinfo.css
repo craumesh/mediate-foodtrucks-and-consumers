@@ -147,7 +147,7 @@ li>#pdtextbox {
     width: 100%; /* 부모 요소에 가득 차도록 설정 */
     background: rgba(51, 89, 121, 0.9); /* 선택적으로 배경 색상 설정 */
     color: #fff; /* 선택적으로 텍스트 색상 설정 */
-    padding-bottom: 20px; /* 선택적으로 여백 추가 */ 
+    padding-bottom: 20px; /* 선택적으로 여백 추가 */
 }
 
 #pdtitle {
@@ -258,9 +258,9 @@ li>#pdtextbox {
 	float: none;
 	position: absolute;	
 	z-index: 50;
-	width: 20%;
-	top: 10%;
-	left: 40%;
+	width: 17%;
+	top: 16%;
+	left: 41%;
 }
 
 .mapoverlay {

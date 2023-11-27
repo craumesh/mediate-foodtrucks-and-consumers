@@ -24,6 +24,9 @@ import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
+import com.fooding.cart.db.CartDTO;
+import com.fooding.member.db.MemberDTO;
+
 
 
 
@@ -223,9 +226,9 @@ public class PaymentDAO {
 	//1. 
 	public ArrayList stringToArrayList(String[] purchase,String[] member,
 						String[] product,String[] quantity,String[] address){
-		ArrayList<PurchaseDTO> purchaseList = new ArrayList<>();
+		ArrayList<PaymentDTO> purchaseList = new ArrayList<>();
 		for (int i = 0; i < purchase.length; i++) {
-		    PurchaseDTO dto = new PurchaseDTO();
+		    PaymentDTO dto = new PaymentDTO();
 		    dto.setPurchaseid(Integer.parseInt(purchase[i]));
 		    dto.setMember_id(Integer.parseInt(member[i]));
 		    dto.setProduct_id(Integer.parseInt(product[i]));
@@ -250,7 +253,7 @@ public class PaymentDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				PurchaseDTO dto = new PurchaseDTO();
+				PaymentDTO dto = new PaymentDTO();
 				dto.setMember_id(rs.getInt("member_id"));
 				dto.setProduct_id(rs.getInt("product_id"));
 				dto.setQuantity(rs.getInt("quantity"));
@@ -271,14 +274,14 @@ public class PaymentDAO {
 	}
 	
 	// 카트정보객체와 주문번호를 가지고 insert 하기
-	public void insertPurchase(ArrayList<PurchaseDTO> cartList, int purchase_id) {
+	public void insertPurchase(ArrayList<PaymentDTO> cartList, int purchase_id) {
 		  try {
 		      con = getCon();
 		      //쿼리에서 date 삭제하기
 		      sql = "INSERT INTO purchase (purchaseid, member_id, product_id, quantity, orderdate, date, address, stoptime) VALUES (?,?,?,?,now(),?,?,?)";
 		      pstmt = con.prepareStatement(sql);
 
-		      for (PurchaseDTO dto : cartList) {
+		      for (PaymentDTO dto : cartList) {
 		         pstmt.setInt(1, purchase_id);
 		         pstmt.setInt(2, dto.getMember_id());
 		         pstmt.setInt(3, dto.getProduct_id());
@@ -298,14 +301,14 @@ public class PaymentDAO {
 	}
 	//2. insertPurchase(ArrayList arr) 만들기
 	//		=> DB업데이트
-	public void insertPurchase(ArrayList<PurchaseDTO> arr) {
+	public void insertPurchase(ArrayList<PaymentDTO> arr) {
 		   try {
 		      con = getCon();
 		      //쿼리에서 date 삭제하기
 		      sql = "INSERT INTO purchase (purchaseid, member_id, product_id, quantity, orderdate, date, address, stoptime) VALUES (?,?,?,?,date(now()),?,?,?)";
 		      pstmt = con.prepareStatement(sql);
 
-		      for (PurchaseDTO dto : arr) {
+		      for (PaymentDTO dto : arr) {
 		         pstmt.setInt(1, dto.getPurchaseid());
 		         pstmt.setInt(2, dto.getMember_id());
 		         pstmt.setInt(3, dto.getProduct_id());
@@ -357,8 +360,8 @@ public class PaymentDAO {
 		return result;
 }
 	// 글 정보 목록을 가져오는 메서드 - getBoardList(int startRow, int pageSize)
-	public PurchaseDTO getBoard() {
-		PurchaseDTO dto = null;
+	public PaymentDTO getBoard() {
+		PaymentDTO dto = null;
 		try {
 			con = getCon();
 			
@@ -368,7 +371,7 @@ public class PaymentDAO {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				dto = new PurchaseDTO();
+				dto = new PaymentDTO();
 				
 				dto.setDetail_id(rs.getInt("detail_id"));
 				dto.setMember_id(rs.getInt("member_id"));
@@ -609,51 +612,6 @@ public class PaymentDAO {
 			return result;
 		}
 
-		public void sendAllRefundEmail(String email, int mid) {
-			
-			// 이메일 전송 설정
-			String host = "smtp.gmail.com";
-			String port = "587";
-			String username = "akkad1478@gmail.com";
-			String password = "yyqnmmhboltxwhro";
-			
-			Properties props = new Properties();
-			props.put("mail.smtp.host", host);
-			props.put("mail.smtp.port", port);
-			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.starttls.enable", "true");
-			props.put("mail.smtp.ssl.trust", host);
-			
-			// 이메일 메시지 작성
-			String subject = "푸딩 - 주문번호 "+mid+"가 결제취소 되었습니다";
-			String content = "안녕하세요. 푸드트럭 예약 사이트 Fooding 입니다"
-					+ "\n 주문번호 "+mid+"의 결제가 가게 사정에 의해 취소되었음을 알려드립니다. "
-					+ "\n 결제금액은 바로 취소되며 은행과 카드사의 사정에 따라 2~3일 뒤에 환불이 될 수 있습니다. "
-					+ "\n 이용해주셔서 감사합니다";
-
-			Session session = Session.getInstance(props, new Authenticator() {
-			    protected PasswordAuthentication getPasswordAuthentication() {
-			        return new PasswordAuthentication(username, password);
-			    }
-			});
-
-			try {
-			    Message message = new MimeMessage(session);
-			    message.setFrom(new InternetAddress(username));
-			    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			    message.setSubject(subject);
-			    message.setText(content);
-
-			    // 이메일 전송
-			    Transport.send(message);
-			    System.out.println("이메일 전송 완료");
-
-			} catch (MessagingException e) {
-			    e.printStackTrace();
-			    System.out.println("이메일 전송 오류");
-			}
-		}
-
 
 		public void sendSomeRefundEmail(String email, int detail_id, int mid) {
 			String productName = null;
@@ -678,52 +636,17 @@ public class PaymentDAO {
 				CloseDB();
 			}
 			
-			// 이메일 전송 설정
-			String host = "smtp.gmail.com";
-			String port = "587";
-			String username = "akkad1478@gmail.com";
-			String password = "yyqnmmhboltxwhro";
 			
-			Properties props = new Properties();
-			props.put("mail.smtp.host", host);
-			props.put("mail.smtp.port", port);
-			props.put("mail.smtp.auth", "true");
-			props.put("mail.smtp.starttls.enable", "true");
-			props.put("mail.smtp.ssl.trust", host);;
-			
-			// 이메일 메시지 작성
-			String subject = "푸딩 - 주문번호 "+mid+"가 결제취소 되었습니다";
-			String content = "안녕하세요. 푸드트럭 예약 사이트 Fooding 입니다"
-					+ "\n 주문번호 "+mid+"의 "+productName+" 결제가 가게 사정에 의해 취소되었음을 알려드립니다. "
-					+ "\n 결제금액은 바로 취소요청 되었으며 은행과 카드사의 사정에 따라 2~3일 뒤에 환불이 될 수 있습니다. "
-					+ "\n 이용해주셔서 감사합니다";
-
-			Session session = Session.getInstance(props, new Authenticator() {
-			    protected PasswordAuthentication getPasswordAuthentication() {
-			        return new PasswordAuthentication(username, password);
-			    }
-			});
-
-			try {
-			    Message message = new MimeMessage(session);
-			    message.setFrom(new InternetAddress(username));
-			    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
-			    message.setSubject(subject);
-			    message.setText(content);
-
-			    // 이메일 전송
-			    Transport.send(message);
-			    System.out.println("이메일 전송 완료");
-
-			} catch (MessagingException e) {
-			    e.printStackTrace();
-			    System.out.println("이메일 전송 오류");
-			}
-			
-			
+			MailThread thread = new MailThread(email, detail_id, mid, productName);
+			thread.start();
 		}
 
 
+		public void sendAllRefundEmail(String email, int detail_id, int mid) {
+			MailThread thread = new MailThread(email, detail_id, mid);
+			thread.start();
+			
+		}
 		
 	
 }//dao end

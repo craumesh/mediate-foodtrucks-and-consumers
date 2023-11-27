@@ -15,7 +15,17 @@ public class OrderDetailDTO {
 	private Date orderdate; // 주문일자
 	private String date; 		// 운행일
 	private String address;		// 주소
+	private String fulladdr;	// 풀주소(동까지)
+	
 	private String stoptime; 	// 운행시간
+    private String starttime;   // 픽업시작시간
+    private String endtime;		// 픽업마감시간
+    
+    public void setStoptime(String stoptime) { // 운행시간 쪼개기
+        String[] times = stoptime.split(",");
+        this.starttime = times[0];
+        this.endtime = times[1];
+    }
 	
 	private String name; 		// 상품이름
 	private int price; 			// 가격
@@ -26,6 +36,30 @@ public class OrderDetailDTO {
 	
 	
 	
+	public String getStarttime() {
+		return starttime;
+	}
+
+	public void setStarttime(String starttime) {
+		this.starttime = starttime;
+	}
+
+	public String getEndtime() {
+		return endtime;
+	}
+
+	public void setEndtime(String endtime) {
+		this.endtime = endtime;
+	}
+
+	public String getFulladdr() {
+		return fulladdr;
+	}
+
+	public void setFulladdr(String fulladdr) {
+		this.fulladdr = fulladdr;
+	}
+
 	public int getNowday() {
 		return nowday;
 	}
@@ -102,9 +136,7 @@ public class OrderDetailDTO {
 		return stoptime;
 	}
 
-	public void setStoptime(String stoptime) {
-		this.stoptime = stoptime;
-	}
+
 
 	public String getName() {
 		return name;

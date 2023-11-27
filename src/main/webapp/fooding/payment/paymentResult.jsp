@@ -151,8 +151,8 @@
 					<span class="total-price">${item.price * item.quantity }</span>원
 					</li>
 					<li>픽업 날짜 : ${item.date}</li>
-					<li>픽업 시간 : ${item.stoptime}</li>
-					<li>픽업 주소 : ${item.address}</li>
+					<li>픽업 시간 : ${item.starttime} ~ ${item.endtime }</li>
+					<li>픽업 주소 : ${item.fulladdr} ${item.address}</li>
 					</ul>
       </div>
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>

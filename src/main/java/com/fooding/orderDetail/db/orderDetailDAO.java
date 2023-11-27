@@ -13,8 +13,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.fooding.payment.db.MemberDTO;
-import com.fooding.payment.db.PurchaseDTO;
+import com.fooding.member.db.MemberDTO;
 
 public class orderDetailDAO {
 
@@ -149,7 +148,8 @@ public ArrayList getPurchaseList(int startRow, int pageSize, int idNum,String to
 				+ "FROM purchase c "
 				+ "JOIN product p ON c.product_id = p.product_id "
 				+ "JOIN foodtruck f ON f.foodtruck_id = p.foodtruck_id "
-				+ "WHERE c.member_id = ? "
+				+ "JOIN stopdate s ON s.foodtruck_id = f.foodtruck_id "
+				+ "WHERE c.member_id = ? and s.address like concat(c.address,'%') "
 				+ "order by detail_id desc limit ?,?";
 		pstmt = con.prepareStatement(sql);				
 		
@@ -188,6 +188,7 @@ public ArrayList getPurchaseList(int startRow, int pageSize, int idNum,String to
 			    }
 
 			pdto.setAddress(rs.getString("address"));
+			pdto.setFulladdr(rs.getString("fulladdr"));
 			pdto.setStoptime(rs.getString("stoptime"));
 			
 			pdto.setName(rs.getString("name"));

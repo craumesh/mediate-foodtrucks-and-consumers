@@ -17,8 +17,8 @@ import org.apache.hc.core5.http.ClassicHttpResponse;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.io.entity.StringEntity;
 
-import com.fooding.payment.db.CartDTO;
-import com.fooding.payment.db.MemberDTO;
+import com.fooding.cart.db.CartDTO;
+import com.fooding.member.db.MemberDTO;
 import com.fooding.payment.db.PaymentDAO;
 import com.fooding.util.Action;
 import com.fooding.util.ActionForward;

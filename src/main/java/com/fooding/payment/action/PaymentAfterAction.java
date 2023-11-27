@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.fooding.payment.db.PaymentDAO;
-import com.fooding.payment.db.PurchaseDTO;
 import com.fooding.util.Action;
 import com.fooding.util.ActionForward;
 

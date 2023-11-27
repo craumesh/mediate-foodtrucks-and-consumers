@@ -5,6 +5,8 @@ import java.sql.Timestamp;
 
 public class PaymentDTO {
 	
+	private int detail_id;		// 주문내역 인덱스
+	private int purchaseid;		// 주문번호
 	private int cart_id;		// 장바구니 번호
 	private int member_id;		// 회원번호
 	private int product_id;		// 상품번호
@@ -20,6 +22,24 @@ public class PaymentDTO {
 	private String foodtruckName; // 푸드트럭 이름
 	private int foodtruck_id;
 	
+
+	
+	
+	public int getDetail_id() {
+		return detail_id;
+	}
+
+	public void setDetail_id(int detail_id) {
+		this.detail_id = detail_id;
+	}
+
+	public int getPurchaseid() {
+		return purchaseid;
+	}
+
+	public void setPurchaseid(int purchaseid) {
+		this.purchaseid = purchaseid;
+	}
 
 	public int getFoodtruck_id() {
 		return foodtruck_id;
