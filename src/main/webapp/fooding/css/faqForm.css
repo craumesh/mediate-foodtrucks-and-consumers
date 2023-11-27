@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+* {
+font-family: 'Pretendard', sans-serif;
+}
+
+.div1 {
+text-align: center;
+}
+
+.card {
+width: 120px
+}
+
+section {
+width: 800px; 
+margin: 50px auto; 
+border-radius: 10px;
+box-shadow: 10px 10px 10px lightgrey;
+}
+
+.div3 input {
+text-align: center;
+margin-bottom: 8px;
+}
+
+span {
+font-weight: bold;
+}
+
+#textarea {
+margin-top: 10px;
+margin-bottom: 10px;
+resize: none;
+height: 300px
+}
+
+h1 {
+margin-bottom: 30px;
+}
+
+#moving-element { /* 움직이는 사이드바 */
+  position: relative;
+  top: 0;
+  transition: top 0.3s;
+}

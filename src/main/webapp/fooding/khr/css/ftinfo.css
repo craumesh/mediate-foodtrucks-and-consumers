@@ -1,0 +1,294 @@
+.ftInfoBox {	
+	background-color:white;
+	margin: auto;
+	margin-top: 10%;
+	margin-bottom: 80px;
+	padding: 5%;
+	width: 80%;
+	align-items: center;
+	border-radius: 80px;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.ftInfoBox>.ftName {
+	margin-top: 9%;
+	margin-bottom: 10%;
+	font-size: 100px;
+	text-align: center;
+}
+
+.ftInfoContainer {
+	display: flex;
+  	align-items: center;
+}
+
+.ftImage {
+	width: 40%;
+	background-color: #F2F2F2;
+	border: solid #273D59 15px;
+	padding: 1%;
+	margin-left: 2%;
+	border-radius: 100px;
+	display: inline-block;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.ftInfoText {
+	font-size: 25px;
+	font-weight: bold;
+  	width: 60%;
+  	margin-left: 6%;
+  	display: inline;
+  	margin-top: 0 !important;
+  	padding-top: 0 !important;
+}
+
+#maincontaner {
+	margin-top: 8%;
+}
+
+#drivecontaner {
+	width: 60%;
+	background-color: #fff;
+	box-shadow: 1px 1px 5px #c0c0c0;
+	margin: auto;
+	margin-right: 4%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+#map {
+	display: inline-block;
+	width: 70%;
+	height: 550px;
+	border-radius: 50px;
+	margin : 5%;
+	margin-right : 4%;
+}
+
+#daydrop {
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	margin: auto;
+	margin-top: 8%;
+	width: 15%;
+	font-size: 22px;
+}
+
+#timeRadioButton {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	font-size: 20px;
+	padding-top: 10px;
+	background-color: #fff;
+	text-align: center;
+	margin-top: 3%;
+}
+
+#timeRadioButton label {
+	margin-bottom: 2%;
+}
+
+#timeRadioButton div {
+	width: 130px;
+}
+
+#drive {
+	font-size: 25px;
+	text-align: center;
+	height: 90px; 
+	line-height: 90px; 
+	background-color: #273D59;	
+	display: block;
+}
+
+#drivetitle {
+	margin-right: 20px;
+	color: white;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+#sliderBox {
+	width: 35%;
+	margin: auto;
+	margin-bottom: 60px;
+	display: inline-block;	
+	vertical-align: top;
+}
+
+#sliderBox>.bx-wrapper img {
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+.bx-wrapper h5 {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.bxslider li {
+    position: relative; /* 상위 요소에 대해 상대적으로 위치 지정 */
+    height: 550px; /* 원하는 높이로 설정, 필요에 따라 조절 */
+  }
+
+/* 선택적으로 이미지의 스타일을 설정할 수 있습니다 */
+.bxslider img {
+    width: 95%; /* 이미지가 부모 요소에 가득 차도록 설정 */
+    object-fit: cover; /* 이미지의 비율을 유지하면서 부모 요소에 맞춤 */
+}
+
+li>#pdtextbox {
+    position: absolute;
+    bottom: 0; /* 슬라이드의 하단에 위치하도록 설정 */
+    width: 100%; /* 부모 요소에 가득 차도록 설정 */
+    background: rgba(51, 89, 121, 0.9); /* 선택적으로 배경 색상 설정 */
+    color: #fff; /* 선택적으로 텍스트 색상 설정 */
+    padding-bottom: 20px; /* 선택적으로 여백 추가 */
+}
+
+#pdtitle {
+	font-size: 25px;
+}
+
+#menutext {
+	font-size: 35px;
+	font-weight: bold;
+	text-align: center !important;
+	height: 90px; 
+	line-height: 90px; 
+	display: block;
+	background-color: #273D59;
+	color: #fff;
+}
+
+#sliderBox>#bx-pager {
+  text-align: center;
+  margin-top: -30px;
+}
+
+#sliderBox>#bx-pager a {
+  margin: 0 3px;
+}
+
+#sliderBox>#bx-pager a img {
+  padding: 3px;
+  border: solid #ccc 1px;  
+  width: 50px;
+}
+
+#sliderBox>#bx-pager a.active img {
+  border: solid #5280DD 1px;
+  width: 50px;
+}
+
+#ordercontaner {
+	margin-left: 65%; 
+	font-size: 20px;
+	padding: 30px;
+	padding-top: 50px;
+	padding-left: 5%;
+	width: 34%;
+	border: solid #2937f0 5px;
+	border-radius: 50px;
+  	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+}
+
+#ordercontaner label {
+	margin-right: 5%;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+#ordercontaner div {
+	margin-bottom: 3%;
+}
+
+#output {
+	margin-left: 15%;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+#orderbutton {
+	margin-top: 10%;
+	margin-bottom: 3%;
+	margin-left: 25%;
+	width: 40%;
+	padding: 5px;
+	font-size: 25px;
+	font-weight: bold;
+	background-color: #2937f0;
+	color: white;
+	border: solid #5280DD 0px;
+	border-radius: 30px;
+  	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 	
+	transition: 0.5s;
+}
+
+#orderbutton:hover {
+	background-color: #d63384;	
+	transition: 0.5s;
+}
+
+#goToList {
+	margin-left: 50%;
+	margin-bottom: 5%;
+	width: 120px;
+	padding: 5px;
+	font-size: 25px;
+	font-weight: bold;
+	background-color: #2937f0;
+	color: white;
+	border: solid #5280DD 0px;
+	border-radius: 30px;
+  	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+  	transition: 0.5s;
+}
+
+#goToList:hover {
+	background-color: #d63384;	
+	transition: 0.5s;
+}
+
+.accimg1 {
+	float: none;
+	position: absolute;	
+	z-index: 50;
+	width: 20%;
+	top: 10%;
+	left: 40%;
+}
+
+.mapoverlay {
+	background-color: white;
+	padding: 6px;
+	width: 200px;
+	border-radius: 20px;
+	position: relative;
+  	bottom: 100px; 
+  	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1); 
+}
+.overlaybox {
+	border: solid #273D59 5px;
+	border-radius: 20px;
+	padding: 10px;
+	padding-left: 5px;
+}
+
+.overlayimg {	
+	display: inline-block;	
+}
+
+.overlaytitle {
+	display: inline-block;
+	font-weight: bold;
+	font-size: 20px;
+	position: relative;
+	width: 100px;
+	text-align: center;
+	top: 4px;
+}

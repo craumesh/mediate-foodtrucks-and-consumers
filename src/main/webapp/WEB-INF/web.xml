@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+  <display-name>Project_Foodtruck</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  	<!-- 푸드트럭 정보 FtInfo 맵핑 -->
+  	<servlet>
+  		<servlet-name>FtInfoFrontController</servlet-name>
+  		<servlet-class>com.fooding.ftinfo.action.FtInfoFrontController</servlet-class>
+ 	</servlet>
+  	<servlet-mapping>
+  		<servlet-name>FtInfoFrontController</servlet-name>
+  		<url-pattern>*.fti</url-pattern>
+  	</servlet-mapping>
+  	
+  	<!--  메인 페이지 man 매핑  -->
+	<servlet>
+		<servlet-name>FtFrontMainController</servlet-name>
+		<servlet-class>com.fooding.man.action.FtFrontMainController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FtFrontMainController</servlet-name>
+		<url-pattern>*.man</url-pattern>
+	</servlet-mapping>
+	<!--  메인 페이지 man 매핑  -->
+	<!--  푸드트럭 메인 ftk 매핑  -->
+	<servlet>
+		<servlet-name>FtkFrontController</servlet-name>
+		<servlet-class>com.fooding.ftk.action.FtkFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FtkFrontController</servlet-name>
+		<url-pattern>*.ftk</url-pattern>
+	</servlet-mapping>
+	<!--  푸드트럭 메인 ftk 매핑  -->
+	
+	<!-- 회원정보 Member 매핑 -->
+	  <servlet>
+	  	<servlet-name>MemberFrontController</servlet-name>
+	  	<servlet-class>com.fooding.member.action.MemberFrontController</servlet-class>
+	  </servlet>	  
+	  <servlet-mapping>
+	  	<servlet-name>MemberFrontController</servlet-name>
+	  	<url-pattern>*.mem</url-pattern>
+	  </servlet-mapping>
+	<!-- 회원정보 Member 매핑 -->
+	
+	<!-- 장바구니 Cart 매핑 -->
+	  <servlet>
+	  	<servlet-name>CartFrontController</servlet-name>
+	  	<servlet-class>com.fooding.cart.action.CartFrontController</servlet-class>
+	  </servlet>	  
+	  <servlet-mapping>
+	  	<servlet-name>CartFrontController</servlet-name>
+	  	<url-pattern>*.car</url-pattern>
+	  </servlet-mapping>
+	<!-- 장바구니 Cart 매핑 -->
+	
+	<!-- 결제 매핑 -->
+	<servlet>
+		<servlet-name>PaymentFrontController</servlet-name>
+		<servlet-class>com.fooding.payment.action.PaymentFrontController</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>PaymentFrontController</servlet-name>
+		<url-pattern>*.pay</url-pattern>
+	</servlet-mapping>
+	<!-- 결제 매핑 -->
+	
+		<!-- 결제 매핑 -->
+	<servlet>
+		<servlet-name>ProfileFrontController</servlet-name>
+		<servlet-class>com.fooding.profile.action.ProfileFrontController</servlet-class>
+		</servlet>
+		<servlet-mapping>
+		<servlet-name>ProfileFrontController</servlet-name>
+		<url-pattern>*.pro</url-pattern>
+	</servlet-mapping>
+	<!-- 결제 매핑 -->
+	
+	<!--  token 매핑  -->
+	<servlet>
+		<servlet-name>Token</servlet-name>
+		<servlet-class>com.fooding.payment.action.Token</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Token</servlet-name>
+		<url-pattern>*.ajx</url-pattern>
+	</servlet-mapping>
+	<!--  token 매핑  -->
+	
+	<!--  refund 매핑  -->
+	<servlet>
+		<servlet-name>Refund</servlet-name>
+		<servlet-class>com.fooding.payment.action.Refund</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Refund</servlet-name>
+		<url-pattern>*.jsn</url-pattern>
+	</servlet-mapping>
+	<!--  refund 매핑  -->  
+  
+	<!-- 한글 인코딩 처리설정 -->
+	<filter>
+		<filter-name>SetUTF8</filter-name>
+		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+		<init-param>
+  			<param-name>encoding</param-name>
+  			<param-value>UTF-8</param-value>
+ 		</init-param>
+	</filter>
+  	<filter-mapping>
+  		<filter-name>SetUTF8</filter-name>
+  		<url-pattern>/*</url-pattern>
+  	</filter-mapping>
+</web-app>

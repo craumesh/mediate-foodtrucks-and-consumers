@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+body {
+    background-image: url('../images/main_foodtruck.jpg');
+    background-color: rgba(0, 0, 0, 0.5); /* 여기서 0.5는 투명도를 나타내며, 0(완전 투명) ~ 1(불투명) 범위 내에서 설정할 수 있어요 */
+    background-blend-mode: overlay; /* 배경 이미지와 색상을 합칠 블렌딩 모드를 설정합니다 */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.idFd {
+	border: 2px solid #000; /* 테두리 두께와 색상을 조절할 수 있습니다. */
+    margin:	150px auto 0;
+    width: 500px;
+    max-width: 100%; /* div가 화면 너비를 초과하지 않도록 함 */
+    background-color: #EEEFF1;
+    border-radius: 5px;
+    text-align: center;
+    padding: 100px 50px;  /* 상단과 하단 패딩을 40px로 늘립니다 */
+}
+
+.idFdContent {
+    border: 5px solid #A073D8;; /* 테두리 스	타일 추가 */
+    padding: 10px; /* 내부 여백 추가 */
+}
+
+.pwFd1 {
+    /* 원하는 스타일 추가 */
+    font-size: 16px;
+    color: #333;
+}
+
+/* 화면 크기에 따른 반응형을 위한 미디어 쿼리 */
+@media (max-width: 600px) {
+    div {
+       		width: 80%; /* 화면이 600px 미만일 때 div의 너비 조정 */
+    }
+}

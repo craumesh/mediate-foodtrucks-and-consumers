@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+* {
+font-family: 'Pretendard', sans-serif;
+}
+
+section {
+text-align: center;
+width: 800px; 
+margin: 50px auto; 
+border-radius: 10px;
+box-shadow: 10px 10px 10px lightgrey;
+}
+
+span {
+font-weight: bold;
+}
+
+#title {
+margin-bottom: 10px;
+}
+
+#textarea {
+margin: 10px auto;
+resize: none;
+height: 300px;
+}
+
+form {
+display: inline;
+}
+
+#moving-element { /* 움직이는 사이드바 */
+  position: relative;
+  top: 0;
+  transition: top 0.3s;
+}

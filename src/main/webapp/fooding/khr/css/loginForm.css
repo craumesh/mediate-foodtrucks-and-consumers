@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap'); */
+
+/*         * { */
+/*             font-family: 'Noto Sans KR', sans-serif; */
+/*         } */
+
+body {
+     background-image: url('../images/main_foodtruck.jpg');
+    background-color: rgba(0, 0, 0, 0.5); /* 여기서 0.5는 투명도를 나타내며, 0(완전 투명) ~ 1(불투명) 범위 내에서 설정할 수 있어요 */
+    background-blend-mode: overlay; /* 배경 이미지와 색상을 합칠 블렌딩 모드를 설정합니다 */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.loginFm {
+    margin:	150px auto 0;
+    width: 500px;
+    max-width: 100%; /* div가 화면 너비를 초과하지 않도록 함 */
+    background-color: #EEEFF1;
+    border-radius: 5px;
+    text-align: center;
+    padding: 100px 50px;  /* 상단과 하단 패딩을 40px로 늘립니다 */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px; /* 레이블 아래 여백 조정 */
+}
+
+.in {
+    margin-bottom: 10px;
+}
+
+#loginBtn {
+	background-color: #A073D8; /* 진한 연보라색으로 변경 */
+    margin-bottom: 30px;
+    color: white;
+}
+
+.loginTag {
+    text-decoration: none;
+    color: #666; /* 약간 진한 회색으로 수정 */
+    font-size: 15px;
+    margin: 0 15px; /* 각 링크 사이의 간격 조정 */
+    border-bottom: 5px solid transparent; /* 초기에는 투명한 선으로 밑줄 설정 */
+}
+
+.loginTag:hover {
+    border-bottom: 2px solid #9B9B9B; /* 호버 시에 밑줄 색상 및 효과 변경 */
+}
+
+.separator {
+    color: #666; /* 약간 진한 회색으로 수정 */
+    font-size: 15px;
+    margin: 0 5px; /* 각 링크 사이의 간격 조정 */
+}
+
+
+/* 화면 크기에 따른 반응형을 위한 미디어 쿼리 */
+@media (max-width: 600px) {
+    div {
+        width: 80%; /* 화면이 600px 미만일 때 div의 너비 조정 */
+    }
+}

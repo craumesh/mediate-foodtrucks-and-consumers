@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+* {
+font-family: 'Pretendard', sans-serif;
+}
+
+.div1 {
+text-align: center;
+}
+
+section {
+width: 550px; 
+margin: 50px auto; 
+border-radius: 10px;
+box-shadow: 10px 10px 10px lightgrey;
+}
+
+.div2 > input { /* 번호, 상호, 상품 */
+text-align: center; 
+margin: 0 0 10px 0; 
+width: 100px;
+}
+
+#input1, #input2, #input7 { /* 상품 내역, 상호명, 상품 타이틀 볼드체 */
+font-weight: bold;
+}
+
+hr { /* 수평선 */
+margin-bottom: 15px;
+}
+
+.div3 input {
+text-align: center;
+margin-bottom: 8px;
+}
+
+#input3 {
+width: 480px;
+}
+
+#input4, #input5 {
+color: red;
+font-weight: bold;
+}
+
+#label {
+display: inline-block;
+margin-bottom: 8px;
+}
+
+span {
+font-weight: bold;
+}
+
+#textarea {
+margin-top: 10px;
+margin-bottom: 10px;
+resize: none;
+height: 200px
+}
+
+#image, #pw {
+text-align: center;
+margin-bottom: 10px;
+}
+
+select {
+text-align: center;
+}
+
+h1 {
+margin-bottom: 30px;
+}
+
+#moving-element { /* 움직이는 사이드바 */
+  position: relative;
+  top: 0;
+  transition: top 0.3s;
+}
+
+#span1 {
+display: inline-block;
+margin-top: 3px;
+}
+
+#reviewimage { /* 리뷰 이미지 크기 제한 */
+border: 1px solid black;
+border-radius: 1%;
+max-width: 300px;
+max-height: 300px;
+margin-bottom: 10px;
+}

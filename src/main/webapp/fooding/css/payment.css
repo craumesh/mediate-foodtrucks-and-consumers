@@ -1,0 +1,109 @@
+@charset "UTF-8";
+
+* {
+font-family: 'Pretendard', sans-serif;
+}
+
+section { /* 섹션 */
+width: 700px;
+margin: 20px auto;
+border-radius: 10px;
+box-shadow: 10px 10px 10px lightgrey;
+clear: both;
+}
+
+.form-check-input{
+	text-indent: -2em;
+	margin-left: 2em;
+}
+.form-check-label, .form-check-input{
+	font-size : 20px;
+	margin-bottom: 1em;
+	
+}
+.form-check{
+	margin-left: 2em;
+}
+
+.mypayment{ /* 폼 */
+    padding: 4em;
+    padding-bottom: 1em;
+	text-align: left;
+}
+
+#mon{
+	padding-top : 1em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: 30px;
+}
+
+.orderPay{ /* <h1> 주문/ 결제 */
+	text-align: center;
+	font-size: 40px;
+}
+
+.pickup{ /* 픽업 내용들 */
+	text-align: justify;
+	margin-right : 2em;
+	margin-bottom: 5px;
+	font-size: large;
+}
+.pickup.name{ /* 트럭 이름 */
+	font-size: 30px;
+}
+.pickup.add{
+	margin-bottom: 20px;
+}
+.productIMG{
+	display : inline;
+	width: 160px;
+	height : 160px;
+	float: left;
+	margin-right : 1em;
+	margin-top: 8px;
+	margin-bottom: 12px;
+	box-shadow: 10px 10px 10px lightgrey;
+	
+}
+hr{
+	border : groove;
+	clear: left;
+	margin-top: 0.5em;
+}
+
+.text-line{
+	margin : 5px;
+	margin-bottom: 1em;
+}
+
+.form-control-plaintext{
+	display: inline;
+}
+
+.picon.kakao{
+	width:2.5em;
+	height: auto;
+}
+.picon.toss{
+	width:2em;
+	height: auto;
+}
+.pay{
+	font-size : 16px;
+	margin-bottom: 1em;
+}
+
+#choice{
+	margin-bottom:40px;	
+}
+
+#tjsdmf{ /* 밑에 선 넣기 */
+	clear: both;
+	font-size: large;
+}
+.fs-6{
+	color : #13b7df;
+}

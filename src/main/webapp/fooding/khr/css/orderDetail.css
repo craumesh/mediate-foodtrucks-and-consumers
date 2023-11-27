@@ -1,0 +1,83 @@
+@charset "UTF-8";
+/* # : 아이디값 */
+/* . : 클래스값 */
+/* 그냥 적으면 전체 적용 */
+/* A>B : A 에 속한 B 적용 */
+/* */
+
+* {
+font-family: 'Pretendard', sans-serif;	
+}
+
+#moving-element { /* 움직이는 사이드바 */
+  position: relative;
+  top: 0;
+  transition: top 0.3s;
+}
+h1{
+	padding-top : 50px;
+	text-align: center;
+}
+.h1{
+	margin : 3%;
+	padding : 20px 10px 10px 17px;
+	border-bottom: 1px dashed lightgrey;
+}
+
+
+
+section { /* 마이페이지 영역 */
+border-radius: 10px; 
+margin: 50px auto 50px auto ;
+width: 570px;
+box-shadow: 10px 10px 10px lightgrey;
+text-align: center;
+}
+
+#simpleCheck{ /* 약식 설명 */
+	margin : 0px 15.5px 0px 15.5px ;
+	width: 500px;
+	padding-bottom : 2em;
+	padding-left : 1em;
+	padding-top : 1em;
+	border-bottom : 1px dashed lightgrey;
+	text-align: left;
+}
+
+.buttons{
+	margin-left: 8em;
+	clear: both;
+	text-align : right;
+	display: inline;
+}
+.pid{
+	margin-bottom: 10px;
+	font-size: large;
+}
+#productImg{
+	float: left;
+	width: 110px;
+	height : 110px;
+	box-shadow: -10px 10px 10px lightgrey;
+	margin-right : 13px;
+	
+}
+#productImgDetail{
+	margin : auto 15px 30px 30px;
+	float: left;
+	width: 400px;
+	height : 400px;
+	box-shadow: -10px 10px 10px lightgrey;
+}
+
+.modal-body>ul>li{
+	clear: both;
+	text-align: justify;
+	font-size : large;
+}
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Black+Han+Sans&family=Noto+Sans+KR&family=Playpen+Sans&display=swap');
+
+
+  
+.service-box {
+    text-align: center;
+    padding:100px 20px;
+    font-family: Noto Sans KR;
+}
+
+#section1, #section3 {
+    background-color:white; 
+}
+
+#section2, #section4 {
+    background-color: #f2f2f2; 
+}
+
+.service-box h1 {
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+

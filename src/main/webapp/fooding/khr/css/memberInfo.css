@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+* {
+font-family: 'Pretendard', sans-serif;	
+}
+
+section { /* 마이페이지 영역 */
+border-radius: 10px; 
+margin: 50px auto;
+width: 550px;
+box-shadow: 10px 10px 10px lightgrey;
+}
+
+h1, h2 { /* 제목 영역 */
+text-align: center;
+}
+
+#memberinfo { /* 마이페이지 회원정보 영역 */
+width: 450px;
+margin: 0 auto;
+}
+
+#memberinfo input { /* 회원 정보 영역의 form 내부 글자 가운데 정렬 */
+text-align: center;
+}
+
+hr { /* 수평선 */
+margin: 30px auto;
+}
+
+#pw { /* 비밀번호 입력창 */
+text-align: center;
+}
+
+#moving-element { /* 움직이는 사이드바 */
+  position: relative;
+  top: 0;
+  transition: top 0.3s;
+}
+
+row > input {
+display: inline-block;
+}

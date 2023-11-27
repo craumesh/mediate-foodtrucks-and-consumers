@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+* {
+font-family: 'Pretendard', sans-serif;
+}
+
+section {
+text-align: center;
+margin: 50px auto;
+width: 800px;
+box-shadow: 10px 10px 10px lightgrey;
+border-radius: 10px;
+
+}
+
+.bno {
+width: 200px;
+}
+
+#moving-element { /* 움직이는 사이드바 */
+  position: relative;
+  top: 0;
+  transition: top 0.3s;
+}
+
+td > a {
+text-decoration: none;
+}
+
+td > a:link {
+color: black;
+}
+
+td > a:visited {
+color: black;	
+}
+
+td > a:hover {
+color: blue;	
+font-weight: bold;
+}
+
+td > a:active {
+color: black;	
+}
