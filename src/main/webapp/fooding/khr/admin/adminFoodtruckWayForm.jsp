@@ -86,18 +86,18 @@
 <!-- 	    <input type="button" class="add-button" value="추가"> -->
 	    <div class="content-container">
 			<div class="row justify-content-center">
-	    	<label for="drive_date" class="col-sm-2 col-form-label"><span>운행일</span></label>
-	    	<div class="col-sm-3">
-	      		<input type="text" class="form-control" name="drive_date" id="drive_date" placeholder="운행일자를 지정하세요" required>
-	    	</div>
+		    	<label for="drive_date" class="col-sm-2 col-form-label"><span>운행일</span></label>
+		    	<div class="col-sm-3">
+		      		<input type="text" class="form-control" name="drive_date" id="drive_date" placeholder="운행일자를 지정하세요" required>
+		    	</div>
 	    	</div>
 	   	<div style="border: 2px solid black; width: 400px; margin: 0 auto 10px; border-radius: 5px;">	
-	    <div class="row justify-content-center">
-   	    	<label for="location" class="col-sm-3 col-form-label"><span>정차지</span></label>
-	  	</div>
-	  	<div class="row justify-content-center">
-   	    	<div class="col-sm-6" id="save-container"></div>
-   	    </div>
+		    <div class="row justify-content-center">
+	   	    	<label for="location" class="col-sm-3 col-form-label"><span>정차지</span></label>
+		  	</div>
+		  	<div class="row justify-content-center">
+	   	    	<div class="col-sm-6" id="save-container"></div>
+	   	    </div>
    	    </div>
 	    	<div class="row justify-content-center">
 			   	<label for="place_name" class="col-sm-2 col-form-label"><span>정차지명</span></label>
@@ -355,7 +355,6 @@
     	editButton.onclick = function() {
     	    var buttonId = this.id; // this.id를 사용하여 버튼의 id에 접근
     	    
-    	    // 나머지 코드
     	    console.log('클릭한 버튼 id:', buttonId);
     	    var sub_buttonId = buttonId.substring(1);
     	    

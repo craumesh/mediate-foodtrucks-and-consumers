@@ -8,6 +8,7 @@ import com.fooding.ftinfo.db.FtInfoDTO;
 import com.fooding.util.Action;
 import com.fooding.util.ActionForward;
 import com.fooding.util.JSMoveFunction;
+import com.google.gson.Gson;
 
 public class FtInfoMainAction implements Action {
 
@@ -35,6 +36,12 @@ public class FtInfoMainAction implements Action {
 		dto = dao.CallFtDateInfo(dto, foodtruck_id);
 		System.out.println(" M : " + dto.toString());		
 		request.setAttribute("dto", dto);
+		
+//		String dtoJson = new Gson().toJson(dto);
+//      
+//      response.setContentType("application/json");
+//      response.setCharacterEncoding("UTF-8");
+//      response.getWriter().write(dtoJson);
 		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./fooding/ftInfo/ftInfoMain.jsp");

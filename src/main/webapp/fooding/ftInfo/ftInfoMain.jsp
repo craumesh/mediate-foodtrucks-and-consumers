@@ -7,16 +7,44 @@
 <head>
 <meta charset="UTF-8">
 <title>푸드트럭 정보</title>
+
 <!-- 파비콘 적용 -->
 <link rel="icon" href="./fooding/images/fooding_log.png" type="image/x-icon">
+<!-- 파비콘 적용 -->
+
+<!-- CSS 스타일 시트 적용 -->
 <link href="./fooding/css/ftinfo.css" rel="stylesheet"> 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<!-- CSS 스타일 시트 적용 -->
+
+<!-- Jquery import -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<!-- JQUERY import -->
+
+<!-- 카카오맵 API -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f6593940ec361770de51ddc68ebfecfa"></script>
+<!-- 카카오맵 API -->
+
+<!-- Bxslider import -->
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<!-- 푸드트럭 메뉴판 출력 -->	    
+<script>
+   $(document).ready(function(){
+	   	$('.bxslider').bxSlider({
+	   		pagerCustom: '#bx-pager'
+	   	});
+	});
+</script>	
+<!-- 푸드트럭 메뉴판 출력 -->	
+<!-- Bxslider import -->
+
 </head>
 <body>
-
 	<!-- 임시 데이터 입력 -->
 	<%
-	FtInfoDTO dto = (FtInfoDTO)request.getAttribute("dto");
+/* 	FtInfoDTO dto = (FtInfoDTO)request.getAttribute("dto");
 	StringBuilder menuAsString = new StringBuilder();
 	List<String> menuArr = new ArrayList<String>();
 	for (int i = 0; i < dto.getPdname().size(); i++) {
@@ -30,9 +58,9 @@
 			menuAsString.append(", ");
 		}
 	}
-	menuAsString.append("]");
+	menuAsString.append("]"); */
 
- 	StringBuilder placeAsString = new StringBuilder();
+/*  	StringBuilder placeAsString = new StringBuilder();
 	placeAsString.append("[");
 	for (int i = 0; i < dto.getAddress().size(); i++) {
 		placeAsString.append("\"").append(dto.getAddress().get(i)).append("\"");
@@ -40,9 +68,9 @@
 			placeAsString.append(", ");
 		}
 	}
-	placeAsString.append("]"); 
+	placeAsString.append("]");  */
 
-	StringBuilder dateAsString = new StringBuilder();
+/* 	StringBuilder dateAsString = new StringBuilder();
 	dateAsString.append("[");
 	for (int i = 0; i < dto.getDate().size(); i++) {
 		dateAsString.append("\"").append(dto.getDate().get(i)).append("\"");
@@ -50,7 +78,7 @@
 			dateAsString.append(", ");
 		}
 	}
-	dateAsString.append("]");
+	dateAsString.append("]"); */
 	%>
 	<!-- 임시 데이터 입력 -->
 	
@@ -63,16 +91,7 @@
     <c:if test="${empty sessionScope.id }">
     	<jsp:include page="../inc/top_logout_another.jsp" />
     </c:if>
-	<!-- 로그인 안 했을 때 -->
-
-
-	<!-- JQUERY import -->
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-	  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-	  crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-	<!-- JQUERY import -->
-	
+	<!-- 로그인 안 했을 때 -->	
 	
 	<div class="ftInfoBox">	
 		<img class="accimg1" src="./upload/foodtruck/fooding_log.png">	
@@ -81,25 +100,14 @@
 		<!-- 푸드트럭 이름 출력 -->	
 		
 		<div class="ftInfoContainer">
-			<!-- 푸드트럭 이미지 출력 -->	
+			<!-- 푸드트럭 이미지 출력 -->
 			<img class="ftImage" src="./upload/foodtruck/${dto.getFtimage() }" alt="이곳에 푸드트럭 이미지를 추가하세요!">
 			<!-- 푸드트럭 이미지 출력 -->
 		
 			<!-- 푸드트럭 설명 출력 -->
 			<p class="ftInfoText" readonly="readonly">${dto.getFtinfo() }</p>
 			<!-- 푸드트럭 설명 출력 -->
-		</div>		
-		
-			
-		<!-- 푸드트럭 메뉴판 출력 -->	    
-	    <script>
-	    $(document).ready(function(){
-	    	$('.bxslider').bxSlider({
-	    		pagerCustom: '#bx-pager'
-	    	});
-		});
-	    </script>	
-	    
+		</div>					    
 	    
 	    <div id="maincontaner">
 	    	<div id="drivecontaner">	
@@ -150,9 +158,11 @@
 		
 		
 		<!-- 운행일 드롭다운 -->
-		<script>
-			const dateArr =	<%=dateAsString.toString()%>;
-	
+		<script>			
+			const dateStr = '${dto.getDate()}';
+			const dateArr = dateStr.replace(/\[|\]/g, '').split(', ');
+			//const dateArr = dateStr.replace(/\[|\]/g, '').split(',').map(item => item.trim());
+			<%-- const dateArr =	<%=dateAsString.toString()%>; --%>
 			var	stopPlaceArr;
 	
 			// select 요소 가져오기
@@ -160,7 +170,7 @@
 	
 			let selectedDate = ''; // 선택한 날짜를 저장할 변수
 			
-			// 메뉴와 가격 데이터를 기반으로 옵션 추가
+			// 드롭다운 옵션 추가
 			for (let i = 0; i < dateArr.length; i++) {
 				const option = document.createElement("option");
 				option.value = i;
@@ -171,8 +181,7 @@
 		<!-- 운행일 드롭다운 -->	
 		
 		
-		<!-- 카카오맵 -->	
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f6593940ec361770de51ddc68ebfecfa"></script>
+		<!-- 카카오맵 -->			
 		<script>
 			var MARKER_WIDTH = 33, // 기본, 클릭 마커의 너비
 			MARKER_HEIGHT = 45, // 기본, 클릭 마커의 높이
@@ -199,14 +208,18 @@
 			var lines = [];
 			var selectedMarker = null; // 클릭한 마커를 담을 변수
 	
-			if(stopPlaceArr == null){
+<%-- 			if(stopPlaceArr == null){
+				/* const addrStr = '${dto.getAddress()}'; */
+				/* stopPlaceArr = addrStr.replace(/\[|\]/g, '').split(', '); */
 				stopPlaceArr = <%=placeAsString.toString()%>;
-			}	
+			} else {
+				marking();
+			} --%>	
+			if(stopPlaceArr != null){
+				marking();
+			}			
 			
-			ReMarking();
-			
-			function ReMarking(){
-				console.log(stopPlaceArr);
+			function marking(){
 				const placeName = new Array();
 				const latitude = new Array();
 				const longitude = new Array();		
@@ -244,6 +257,7 @@
 				
  				addLine(stopMarker);
 				map.setBounds(bounds); 
+				zoomOut();
 	
 				// 지도 위에 마커를 표시합니다
 				for (var i = 0; i < stopMarker.length; i++) {
@@ -372,24 +386,21 @@
 					}
 				});
 				
-	
+				// 운행일 드롭 다운이 변경 되었을 때 지도의 마커에 대한 클릭 이벤트를 발생시킵니다
 				$("input[name='stopPlaceTime']").on('change', function() {
 					var currentValue = $(this).val();
 					kakao.maps.event.trigger(marker, 'click', currentValue);
 				});
 			}
 	
-			// 마커 클릭 시 해당 마커의 고유값과 일치하는 value값을 가진 radio 버튼 체크
+			// 마커 클릭 시 해당 마커의 고유값과 일치하는 value값을 가진 radio 버튼을 체크합니다
 			function triggerEvent(eventIndex) {
-				// 이벤트가 발생했을 때 그 인덱스와 동일한 값을 가진 라디오 버튼을 클릭합니다.
+				// 이벤트가 발생했을 때 그 인덱스와 동일한 값을 가진 라디오 버튼을 클릭합니다
 				const targetRadioButton = document.querySelector('input[type="radio"][value="' + eventIndex.toString() + '"]');
 				if (targetRadioButton) {
-					targetRadioButton.checked = true; // 라디오 버튼을 체크 상태로 변경
-					// 라디오 버튼이 변경됐음을 시뮬레이트하기 위해 change 이벤트를 발생시킵니다.
-					const changeEvent = new Event('change', {
-						bubbles : true
-					});
-					targetRadioButton.dispatchEvent(changeEvent); // 라디오 버튼에 변경 이벤트 전달
+					targetRadioButton.checked = true; // 라디오 버튼을 체크 상태로 변경합니다
+					// 대상 라디오 버튼에 change 이벤트를 발생시킵니다.
+					targetRadioButton.dispatchEvent(new Event('change'));
 				} else {
 					console.log('값이 ' + eventIndex.toString() + '인 라디오 버튼을 찾을 수 없습니다.');
 				}
@@ -401,12 +412,19 @@
 				{
 					offset : offset, // 마커 이미지에서의 기준 좌표
 					spriteOrigin : spriteOrigin, // 스트라이프 이미지 중 사용할 영역의 좌상단 좌표
-					spriteSize : spriteImageSize
-				// 스프라이트 이미지의 크기
+					spriteSize : spriteImageSize // 스프라이트 이미지의 크기
 				});
 	
 				return markerImage;
 			}
+			
+			function zoomOut() {    
+			    // 현재 지도의 레벨을 얻어옵니다
+			    var level = map.getLevel(); 
+			    
+			    // 지도를 1레벨 올립니다 (지도가 축소됩니다)
+			    map.setLevel(level + 1);
+			}    
 	
 			document.getElementById('dateSelecter').addEventListener('input',function() {
 				var selectedOption = this.options[this.selectedIndex];
@@ -451,7 +469,7 @@
 	
 	                        // 새 라디오 버튼을 기존 위치에 추가
 	                        timeRadioButton.appendChild(newRadioButtonsContainer);
-	                    	ReMarking();
+	                    	marking();
 	                    } else {
 	                        console.error("기존 라디오 버튼을 담을 컨테이너가 없습니다.");
 	                    }
@@ -508,7 +526,7 @@
 				<span id="output">0 원</span>
 				
 			<!-- 현재 주문 가격 출력 -->	
-			</div>		
+			</div>
 			
 			<form action="./FTInfoSendAction.fti" method="post">
 				<input type="hidden" name="truck_id" id="truck_id"/>
@@ -524,24 +542,29 @@
 	
 		<!-- 푸드트럭 메뉴 드롭다운 -->
 		<script>
-			const menuArr = <%=menuAsString.toString()%>;
+			const menuNameStr = '${dto.getPdname()}';
+			const menuPriceStr = '${dto.getPrice()}';
+			/* const menuArr = menuStr.replace(/\[|\]/g, '').split(', '); */
+			<%-- const menuArr = <%=menuAsString.toString()%>;
 			const menuNameArr = new Array();
-			const menuPriceArr = new Array();
+			const menuPriceArr = new Array(); --%>
+			const menuNameArr = menuNameStr.replace(/\[|\]/g, '').split(', ');
+			const menuPriceArr = menuPriceStr.replace(/\[|\]/g, '').split(', ');
 	
-			for (var i = 0; i < menuArr.length; i++) {
+/* 			for (var i = 0; i < menuArr.length; i++) {
 				menuNameArr[i] = menuArr[i].split(", ")[0];
 				menuPriceArr[i] = menuArr[i].split(", ")[1];
-			}
+			} */
 	
 			// select 요소 가져오기
 			const menuElement = document.getElementById("menuSelecter");
 	
 			// 메뉴와 가격 데이터를 기반으로 옵션 추가
-			for (let i = 0; i < menuArr.length; i++) {
+			for (let i = 0; i < menuNameArr.length; i++) {
 				const option = document.createElement("option");
 				option.value = i;
 				option.dataset.price = menuPriceArr[i];
-				option.text = menuArr[i];
+				option.text = menuNameArr[i] + " - " + menuPriceArr[i];
 				menuElement.appendChild(option);
 			}
 		</script>
@@ -557,8 +580,7 @@
 						var selectedOption = this.options[this.selectedIndex];
 						selectedPrice = selectedOption.getAttribute('data-price');
 						var selectedProduct = selectedOption.text;
-						console.log(selectedProduct.split(", ")[0]);
-						$('#product').val(selectedProduct.split(", ")[0]);
+						$('#product').val(selectedProduct.split(" - ")[0]);
 						calculate();
 					});
 	
