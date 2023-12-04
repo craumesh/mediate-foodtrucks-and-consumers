@@ -37,12 +37,6 @@ public class FtInfoMainAction implements Action {
 		System.out.println(" M : " + dto.toString());		
 		request.setAttribute("dto", dto);
 		
-//		String dtoJson = new Gson().toJson(dto);
-//      
-//      response.setContentType("application/json");
-//      response.setCharacterEncoding("UTF-8");
-//      response.getWriter().write(dtoJson);
-		
 		ActionForward forward = new ActionForward();
 		forward.setPath("./fooding/ftInfo/ftInfoMain.jsp");
 		forward.setRedirect(false);

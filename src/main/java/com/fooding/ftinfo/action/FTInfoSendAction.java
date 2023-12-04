@@ -23,7 +23,7 @@ public class FTInfoSendAction implements Action {
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			if(id == null) {
+			if(id == null || id.equals("")) {
 				JSMoveFunction.alertLocation(response, "먼저 로그인 해주세요!", "./MemberLogin.mem");
 			}
 		}		

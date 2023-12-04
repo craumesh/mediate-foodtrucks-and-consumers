@@ -70,20 +70,7 @@
 	    	<div class="col-sm-3">
 	      		<input type="text" class="form-control" name="foodtruck_id" id="foodtruck_id" value="${param.foodtruck_id }" readonly>
 	    	</div>
-	  	</div>	  
-<!-- 		<div class="row justify-content-center"> -->
-<!-- 	    	<label for="score" class="col-sm-2 col-form-label"><span>판매 푸드트럭</span></label> -->
-<!-- 	    	 <div class="col-sm-3"> -->
-<%-- 	    	 	<label for="score" class="col-sm-2 col-form-label"><span id="foodtruck_id">${param.foodtruck_id }</span></label> --%>
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	  	<div class="row justify-content-center"> -->
-<!-- 	    	<label for="nickname" class="col-sm-2 col-form-label"><span>운행일</span></label> -->
-<!-- 	    	<div class="col-sm-3"> -->
-<!-- 	      		<input type="text" class="form-control" name="drive_date" id="drive_date" placeholder="운행일을 지정하세요" required> -->
-<!-- 	    	</div> -->
-<!-- 	  	</div>	  	 -->
-<!-- 	    <input type="button" class="add-button" value="추가"> -->
+	  	</div>
 	    <div class="content-container">
 			<div class="row justify-content-center">
 		    	<label for="drive_date" class="col-sm-2 col-form-label"><span>운행일</span></label>
@@ -149,8 +136,6 @@
 	   	    	<div class="col-sm-3">
 	   		      	<input type="time" class="form-control" name="start_time" id="start_time" required>
 	   		    </div>
-<!-- 	   		</div> -->
-<!-- 	   		<div class="row justify-content-center"> -->
 	   			<label for="end_time" class="col-sm-2 col-form-label"><span>종료시간</span></label>
 	   		    <div class="col-sm-3">
 	   		      	<input type="time" class="form-control" name="end_time" id="end_time" required>
@@ -160,7 +145,6 @@
 	    </div>
 	   	    </div>
 	    </div>
-<!-- 	    <input type="button" class="add-button" value="추가"> -->
 		<br>
 		<div class="col-auto mx-auto">
 	    	<button type="button" class="btn btn-primary btn-sm" onclick="submitConfirm();">저장하기</button>
@@ -315,9 +299,7 @@
  	    });
     }
     
-    function addWayLabel(formDataMap){
-    	console.log(formDataMap);
-    	
+    function addWayLabel(formDataMap){    	
     	var newSpan = document.createElement('span');
     	if(document.getElementById('place_name').value == ""){
     		formDataMap.forEach(function(value, key) {
@@ -353,9 +335,7 @@
     	editButton.value = '수정';
     	editButton.id = "e" + idx;
     	editButton.onclick = function() {
-    	    var buttonId = this.id; // this.id를 사용하여 버튼의 id에 접근
-    	    
-    	    console.log('클릭한 버튼 id:', buttonId);
+    	    var buttonId = this.id; // this.id를 사용하여 버튼의 id에 접근    	    
     	    var sub_buttonId = buttonId.substring(1);
     	    
     	    document.getElementById('place_name').value = formDataMap.get(sub_buttonId).place_name;
@@ -379,8 +359,6 @@
     	delButton.onclick = function() {
 			var buttonId = this.id; // this.id를 사용하여 버튼의 id에 접근
 			var delConfirmed = confirm("정말 삭제하시겠습니까?");
-			
-    	    console.log('클릭한 버튼 id:', buttonId);
 			
 			if (delConfirmed) {	        	    
         	    var sub_buttonId = buttonId.substring(1);
